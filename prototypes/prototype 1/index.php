@@ -38,7 +38,7 @@
                 <td><?= $person[4]?></td>
                 <td>
                     <a href="edit.php?id=<?php echo $person[0] ?>">Edit</a>
-                    <a href="delete.php?id="<?= $person[0] ?>>delete</a>
+                    <a href="delete.php?id=<?php echo $person[0] ?>">delete</a>
                 </td>
             </tr>
             <?php }?>
