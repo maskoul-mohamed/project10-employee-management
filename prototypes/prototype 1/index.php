@@ -26,9 +26,9 @@
                 <th>Action</th>
             </tr>
 
-            <?
+            <?php
                     foreach($data as $person){
-                    
+
             ?>
 
             <tr>
