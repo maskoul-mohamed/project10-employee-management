@@ -1,7 +1,7 @@
 <?php
     include 'config.php';
 
-    $sqlGetData = 'SELECT first_name, last_name, age, gender FROM employees';
+    $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees';
     $result = mysqli_query($conn ,$sqlGetData);
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -38,8 +38,8 @@
                 <td><?= $person['age']?></td>
                 <td><?= $person['gender']?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $person[0] ?>">Edit</a>
-                    <a href="delete.php?id=<?php echo $person[0] ?>">delete</a>
+                    <a href="edit.php?id=<?php echo $person['id'] ?>">Edit</a>
+                    <a href="delete.php?id=<?php echo $person['id'] ?>">delete</a>
                 </td>
             </tr>
             <?php }?>
