@@ -1,7 +1,7 @@
 <?php
     include 'config.php';
 
-    $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees';
+    $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees_test';
     $result = mysqli_query($conn ,$sqlGetData);
     $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

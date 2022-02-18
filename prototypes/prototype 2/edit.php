@@ -4,7 +4,7 @@
     if(isset($_GET['id'])){
     $id = $_GET['id'];
     
-    $sqlGetQuery = "SELECT * FROM employees WHERE id= $id";
+    $sqlGetQuery = "SELECT * FROM employees_test WHERE id= $id";
 
     // get result
     $result = mysqli_query($conn, $sqlGetQuery);
@@ -22,7 +22,7 @@
        $age = $_POST['age'];
 
        // Update query
-       $sqlUpdateQuery = "UPDATE employees SET 
+       $sqlUpdateQuery = "UPDATE employees_test SET 
                     first_name='$first_name', last_name='$last_name', age='$age', gender='$gender'
                     WHERE id=$id";
 

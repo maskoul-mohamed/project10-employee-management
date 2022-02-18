@@ -9,7 +9,7 @@
         $person = array($firstName, $lastName, $age, $gender);
 
         // sql insert query
-        $sqlInsertQuery = "INSERT INTO employees(first_name, last_name, age, gender) 
+        $sqlInsertQuery = "INSERT INTO employees_test(first_name, last_name, age, gender) 
                                 VALUES('$firstName', '$lastName', '$age', '$gender')";
         
         mysqli_query($conn, $sqlInsertQuery);

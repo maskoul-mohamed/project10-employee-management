@@ -3,7 +3,7 @@
     class EmployeeManager {
 
         public function getAllEmployees($conn){
-            $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees';
+            $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees_test';
             $result = mysqli_query($conn ,$sqlGetData);
             $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
             return $data;
@@ -17,7 +17,7 @@
             $gender = $employee->getGender();
 
                  // sql insert query
-        $sqlInsertQuery = "INSERT INTO employees(first_name, last_name, age, gender) 
+        $sqlInsertQuery = "INSERT INTO employees_test(first_name, last_name, age, gender) 
                             VALUES('$firstName', 
                                     '$lastName',
                                     '$age', 
@@ -28,7 +28,7 @@
 
 
         public function deleteEmployee($conn, $id){
-            $sqlDeleteQuery = "DELETE FROM employees WHERE id= '$id'";
+            $sqlDeleteQuery = "DELETE FROM employees_test WHERE id= '$id'";
 
             mysqli_query($conn, $sqlDeleteQuery);
         }
@@ -41,7 +41,7 @@
             $age = $employee->getAge();
      
             // Update query
-            $sqlUpdateQuery = "UPDATE employees SET 
+            $sqlUpdateQuery = "UPDATE employees_test SET 
                          first_name='$first_name', last_name='$last_name', age='$age', gender='$gender'
                          WHERE id=$id";
      
@@ -51,7 +51,7 @@
         }
 
         public function getEmployee($conn, $id){
-            $sqlGetQuery = "SELECT * FROM employees WHERE id= $id";
+            $sqlGetQuery = "SELECT * FROM employees_test WHERE id= $id";
     
         // get result
         $result = mysqli_query($conn, $sqlGetQuery);
