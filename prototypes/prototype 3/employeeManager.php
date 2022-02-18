@@ -49,6 +49,17 @@
              mysqli_query($conn, $sqlUpdateQuery);
        
         }
+
+        public function getEmployee($conn, $id){
+            $sqlGetQuery = "SELECT * FROM employees WHERE id= $id";
+    
+        // get result
+        $result = mysqli_query($conn, $sqlGetQuery);
+    
+        // fetch to array
+        $employee = mysqli_fetch_assoc($result);
+        return $employee;
+        }
     }
 
 

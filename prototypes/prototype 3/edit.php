@@ -3,22 +3,16 @@
     include 'employee.php';
     include 'employeeManager.php';
 
+    $employeeManager = new EmployeeManager();
+
     if(isset($_GET['id'])){
-    $id = $_GET['id'];
-    
-    $sqlGetQuery = "SELECT * FROM employees WHERE id= $id";
-
-    // get result
-    $result = mysqli_query($conn, $sqlGetQuery);
-
-    // fetch to array
-    $employee = mysqli_fetch_assoc($result);
+        $id = $_GET['id'];
+        $employee = $employeeManager->getEmployee($conn, $id);
 
     }
 
     if(isset($_POST['update'])){
         $employee = new Employee();
-        $employeeManager = new EmployeeManager();
 
         $employee->setFirstName($_POST['fname']);
         $employee->setLastName($_POST['lname']);
