@@ -5,18 +5,15 @@
 	include 'employeeManager.php';
 
     if(!empty($_POST)){
+		$employee = new Employee();	
+		$employeeManager = new EmployeeManager();
 
-        $firstName = $_POST['fname'];
-        $lastName = $_POST['lname'];
-        $age = $_POST['age'];
-        $gender = $_POST['gender'];
-        $person = array($firstName, $lastName, $age, $gender);
+        $employee->setFirstName($_POST['fname']);
+        $employee->setLastName($_POST['lname']);
+        $employee->setAge($_POST['age']);
+        $employee->setGender($_POST['gender']);
 
-        // sql insert query
-        $sqlInsertQuery = "INSERT INTO employees(first_name, last_name, age, gender) 
-                                VALUES('$firstName', '$lastName', '$age', '$gender')";
-        
-        mysqli_query($conn, $sqlInsertQuery);
+		$employeeManager->insertEmployee($conn, $employee);
      
         header("Location: index.php");
 
