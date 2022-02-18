@@ -25,7 +25,32 @@
 
         mysqli_query($conn, $sqlInsertQuery);
         }
+
+
+        public function deleteEmployee($conn, $id){
+            $sqlDeleteQuery = "DELETE FROM employees WHERE id= '$id'";
+
+            mysqli_query($conn, $sqlDeleteQuery);
+        }
+
+
+        public function editEmployee($conn, $employee, $id){
+            $first_name = $employee->getFirstName();
+            $last_name = $employee->getLastName();
+            $gender = $employee->getGender();
+            $age = $employee->getAge();
+     
+            // Update query
+            $sqlUpdateQuery = "UPDATE employees SET 
+                         first_name='$first_name', last_name='$last_name', age='$age', gender='$gender'
+                         WHERE id=$id";
+     
+             // Make query 
+             mysqli_query($conn, $sqlUpdateQuery);
+       
+        }
     }
 
 
+    
 ?>

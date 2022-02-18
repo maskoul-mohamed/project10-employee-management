@@ -1,5 +1,7 @@
 <?php
     include 'config.php';
+    include 'employee.php';
+    include 'employeeManager.php';
 
     if(isset($_GET['id'])){
     $id = $_GET['id'];
@@ -15,26 +17,18 @@
     }
 
     if(isset($_POST['update'])){
+        $employee = new Employee();
+        $employeeManager = new EmployeeManager();
 
-       $first_name = $_POST['fname'];
-       $last_name = $_POST['lname'];
-       $gender = $_POST['gender'];
-       $age = $_POST['age'];
+        $employee->setFirstName($_POST['fname']);
+        $employee->setLastName($_POST['lname']);
+        $employee->setGender($_POST['gender']);
+        $employee->setAge($_POST['age']);
 
-       // Update query
-       $sqlUpdateQuery = "UPDATE employees SET 
-                    first_name='$first_name', last_name='$last_name', age='$age', gender='$gender'
-                    WHERE id=$id";
+        $employeeManager->editEmployee($conn, $employee, $id);
 
-        // Make query 
-        mysqli_query($conn, $sqlUpdateQuery);
-
-        //Check if no errors
-        if(mysqli_error($conn)){
-            echo 'query error' . mysqli_errno($conn);
-        } else {
-            header('Location: index.php');
-        }
+        header('Location: index.php');
+        
     }
 ?>
 
