@@ -1,9 +1,11 @@
 <?php
-    include 'config.php';
+    include '../config.php';
     include 'employeeManager.php';
 
-    $employeeManager = new EmployeeManager();
-    $employees = $employeeManager->getAllEmployees($conn);
+    $employee= new EmployeeManager();
+    $employees = $employee->getAllEmployees($connect);
+    
+
 
 ?>
 
@@ -41,7 +43,7 @@
                 <td><?= $employee['birth_date']?></td>
                 <td><?= $employee['salary']?></td>
                 <td><?= $employee['fonction']?></td>
-                <td><img src="<?php echo $employee['photo']; ?>"></td>
+                <td><img src="<?php echo '../images/'.$employee['photo']; ?>"></td>
                 <td>
                     <a href="edit.php?id=<?php echo $employee['id'] ?>">Edit</a>
                     <a href="delete.php?id=<?php echo $employee['id'] ?>">delete</a>
