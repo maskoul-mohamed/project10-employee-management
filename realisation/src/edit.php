@@ -10,22 +10,30 @@
         $employee = $employeeManager->getEmployee($connect, $id);
     }
     if(isset($_POST['update'])){
-        $filename = $_FILES["uploadfile"]["name"];
-		$employee = new Employee();
 
-		$employee->setEmployeeId($_POST['employeeId']);
-		$employee->setFirstName($_POST['firstName']);
-		$employee->setLastName($_POST['lastName']);
-		$employee->setSalary($_POST['salary']);
-		$employee->setBirthDate($_POST['birthDate']);
-		$employee->setDepartement($_POST['departement']);
-		$employee->setPhoto($filename);
+        $filename = $_FILES["uploadfile"]["name"];
+		$employeeToEdit = new Employee();
+
+		$employeeToEdit->setEmployeeId($_POST['employeeId']);
+		$employeeToEdit->setFirstName($_POST['firstName']);
+		$employeeToEdit->setLastName($_POST['lastName']);
+		$employeeToEdit->setSalary($_POST['salary']);
+		$employeeToEdit->setBirthDate($_POST['birthDate']);
+		$employeeToEdit->setDepartement($_POST['departement']);
 
 
 	    $tempname = $_FILES["uploadfile"]["tmp_name"];    
 
-        $employeeManager->editEmployee($connect, $employee, $id);
-		$employeeManager->upload_photo($filename, $tempname);
+        if(!empty($filename)){
+            $employeeToEdit->setPhoto($filename);
+            $employeeManager->upload_photo($filename, $tempname);
+        } else {
+            $employeeToEdit->setPhoto($employee['photo']);
+        }
+
+        $employeeManager->editEmployee($connect, $employeeToEdit, $id);
+        
+        
         
         header('Location: index.php');
         
