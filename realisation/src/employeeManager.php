@@ -16,18 +16,18 @@
             $lastName = $employee->getLastName();
             $salary = $employee->getSalary();
             $birthDate = $employee->getBirthDate();
-            $function = $employee->getFunction();
+            $departement = $employee->getDepartement();
             $photo = $employee->getPhoto();
 
                  // sql insert query
             $sqlInsertQuery = "INSERT INTO employees
-                                (employee_id, first_name, last_name, birth_date, salary, fonction, photo) 
+                                (employee_id, first_name, last_name, birth_date, salary, departement, photo) 
                                 VALUES('$employeeId', 
                                         '$firstName',
-                                        '$lastName', 
+                                        '$lastName',
+                                        '$birthDate',  
                                         '$salary', 
-                                        '$birthDate', 
-                                        '$function', 
+                                        '$departement', 
                                         '$photo')";
 
         mysqli_query($conn, $sqlInsertQuery);
@@ -50,15 +50,24 @@
 
 
         public function editEmployee($conn, $employee, $id){
-            $first_name = $employee->getFirstName();
-            $last_name = $employee->getLastName();
-            $gender = $employee->getGender();
-            $age = $employee->getAge();
+            $employeeId = $employee->getEmployeeId();
+            $firstName = $employee->getFirstName();
+            $lastName = $employee->getLastName();
+            $salary = $employee->getSalary();
+            $birthDate = $employee->getBirthDate();
+            $departement = $employee->getDepartement();
+            $photo = $employee->getPhoto();
      
             // Update query
-            $sqlUpdateQuery = "UPDATE employees_test SET 
-                         first_name='$first_name', last_name='$last_name', age='$age', gender='$gender'
-                         WHERE id=$id";
+            $sqlUpdateQuery = "UPDATE employees SET 
+                                employee_id='$employeeId',
+                                first_name='$firstName', 
+                                last_name='$lastName', 
+                                salary='$salary', 
+                                birth_date='$birthDate',
+                                departement='$departement',
+                                photo='$photo' 
+                                WHERE id=$id";
      
              // Make query 
              mysqli_query($conn, $sqlUpdateQuery);
@@ -66,7 +75,7 @@
         }
 
         public function getEmployee($conn, $id){
-            $sqlGetQuery = "SELECT * FROM employees_test WHERE id= $id";
+        $sqlGetQuery = "SELECT * FROM employees WHERE id= $id";
     
         // get result
         $result = mysqli_query($conn, $sqlGetQuery);
@@ -75,6 +84,10 @@
         $employee = mysqli_fetch_assoc($result);
         return $employee;
         }
+
+
+
+        
     }
 
 

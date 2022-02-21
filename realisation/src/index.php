@@ -28,7 +28,7 @@
                 <th>Last Name</th>
                 <th>Birth Date</th>
                 <th>Salary</th>
-                <th>Fonction</th>
+                <th>Departement</th>
                 <th>Photo</th>
             </tr>
 
@@ -42,7 +42,7 @@
                 <td><?= $employee['last_name']?></td>
                 <td><?= $employee['birth_date']?></td>
                 <td><?= $employee['salary']?></td>
-                <td><?= $employee['fonction']?></td>
+                <td><?= $employee['departement']?></td>
                 <td><img src="<?php echo '../images/'.$employee['photo']; ?>"></td>
                 <td>
                     <a href="edit.php?id=<?php echo $employee['id'] ?>">Edit</a>
