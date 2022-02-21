@@ -1,12 +1,31 @@
 <?php
+    include 'employee.php';
 
     class EmployeeManager {
+
+        private $Connection = null;
+
+        private function getConnection(){
+            if(is_null($this->Connection)){
+                $this->Connection = mysqli_connect('localhost', 'maskoul', 'test123', 'employees_db');
+
+                if(!$this->Connection){
+                    $message = 'Connection Error: ' .mysqli_connect_error();
+                    throw new Exception($message);
+                }
+            }
+            return $this->Connection;
+        }
 
         public function getAllEmployees($conn){
             $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees_test';
             $result = mysqli_query($conn ,$sqlGetData);
             $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            return $data;
+
+            $employees = array();
+            foreach($employees as $employee){
+                
+            }
         }
 
 
