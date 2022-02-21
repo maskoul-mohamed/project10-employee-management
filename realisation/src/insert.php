@@ -13,7 +13,7 @@
 		$employee->setLastName($_POST['lastName']);
 		$employee->setSalary($_POST['salary']);
 		$employee->setBirthDate($_POST['birthDate']);
-		$employee->setFunction($_POST['function']);
+		$employee->setDepartement($_POST['departement']);
 		$employee->setPhoto($filename);
 
 
@@ -70,8 +70,8 @@
 			</div>
 
             <div>
-				<label for="inputFunction">Function</label>
-				<input type="text" required="required" id="inputFunction" name="function" placeholder="Function">
+				<label for="inputDepartement">Function</label>
+				<input type="text" required="required" id="inputDepartement" name="departement" placeholder="Departement">
         		<span></span>
 			</div>
 
