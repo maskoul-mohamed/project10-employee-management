@@ -54,10 +54,10 @@
         }
 
 
-        public function deleteEmployee($conn, $id){
+        public function deleteEmployee($id){
             $sqlDeleteQuery = "DELETE FROM employees_test WHERE id= '$id'";
 
-            mysqli_query($conn, $sqlDeleteQuery);
+            mysqli_query($this->getConnection(), $sqlDeleteQuery);
         }
 
 
