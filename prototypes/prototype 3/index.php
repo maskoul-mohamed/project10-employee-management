@@ -38,8 +38,8 @@
                 <td><?= $employee->getAge()?></td>
                 <td><?= $employee->getGender()?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $person['id'] ?>">Edit</a>
-                    <a href="delete.php?id=<?php echo $person['id'] ?>">delete</a>
+                    <a href="edit.php?id=<?php echo $employee->getId() ?>">Edit</a>
+                    <a href="delete.php?id=<?php echo $employee->getId() ?>">delete</a>
                 </td>
             </tr>
             <?php }?>

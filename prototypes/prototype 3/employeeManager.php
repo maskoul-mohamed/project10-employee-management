@@ -61,31 +61,43 @@
         }
 
 
-        public function editEmployee($conn, $employee, $id){
-            $first_name = $employee->getFirstName();
-            $last_name = $employee->getLastName();
-            $gender = $employee->getGender();
-            $age = $employee->getAge();
+        public function editEmployee($id, $first_name, $last_name, $gender, $age){
      
             // Update query
             $sqlUpdateQuery = "UPDATE employees_test SET 
-                         first_name='$first_name', last_name='$last_name', age='$age', gender='$gender'
+                         first_name='$first_name', 
+                         last_name='$last_name', 
+                         age='$age', 
+                         gender='$gender'
                          WHERE id=$id";
      
              // Make query 
-             mysqli_query($conn, $sqlUpdateQuery);
+             mysqli_query($this->getConnection(), $sqlUpdateQuery);
+
+             if(mysqli_error($this->getConnection())){
+                 $msg = 'Erreur' . mysqli_errno($this->getConnection());
+                 throw new Exception($msg);
+             }
        
         }
 
-        public function getEmployee($conn, $id){
+        public function getEmployee($id){
             $sqlGetQuery = "SELECT * FROM employees_test WHERE id= $id";
-    
-        // get result
-        $result = mysqli_query($conn, $sqlGetQuery);
-    
-        // fetch to array
-        $employee = mysqli_fetch_assoc($result);
-        return $employee;
+        
+            // get result
+            $result = mysqli_query($this->getConnection(), $sqlGetQuery);
+        
+            // fetch to array
+            $employee_data = mysqli_fetch_assoc($result);
+
+            $employee = new Employee();
+            $employee->setId($employee_data['id']);
+            $employee->setFirstName($employee_data['first_name']);
+            $employee->setLastName($employee_data['last_name']);
+            $employee->setAge($employee_data['age']);
+            $employee->setGender($employee_data['gender']);
+            
+            return $employee;
         }
     }
 
