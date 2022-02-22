@@ -17,17 +17,26 @@
             $salary = $employee->getSalary();
             $birthDate = $employee->getBirthDate();
             $departement = $employee->getDepartement();
+            $function = $employee->getFunction();
             $photo = $employee->getPhoto();
 
                  // sql insert query
             $sqlInsertQuery = "INSERT INTO employees
-                                (employee_id, first_name, last_name, birth_date, salary, departement, photo) 
+                                (employee_id, 
+                                first_name, 
+                                last_name, 
+                                birth_date,
+                                departement,
+                                salary, 
+                                function, 
+                                photo) 
                                 VALUES('$employeeId', 
                                         '$firstName',
                                         '$lastName',
-                                        '$birthDate',  
-                                        '$salary', 
+                                        '$birthDate', 
                                         '$departement', 
+                                        '$salary', 
+                                        '$function', 
                                         '$photo')";
 
         mysqli_query($conn, $sqlInsertQuery);

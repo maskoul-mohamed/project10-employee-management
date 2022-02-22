@@ -7,7 +7,9 @@
         private $salary;
         private $birthDate;
         private $departement;
+        private $function;
         private $photo;
+
 
         function getId(){
             return $this->id;
@@ -63,6 +65,14 @@
 
         function setDepartement($value){
             $this->departement = $value;
+        }
+
+        function getFunction(){
+            return $this->function;
+        }
+
+        function setFunction($value){
+            $this->function = $value;
         }
 
         function getPhoto(){
