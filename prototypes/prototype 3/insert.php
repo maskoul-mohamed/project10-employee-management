@@ -1,7 +1,4 @@
 <?php
-
-    include 'config.php';
-	include 'employee.php';
 	include 'employeeManager.php';
 
     if(!empty($_POST)){
@@ -13,7 +10,7 @@
         $employee->setAge($_POST['age']);
         $employee->setGender($_POST['gender']);
 
-		$employeeManager->insertEmployee($conn, $employee);
+		$employeeManager->insertEmployee($employee);
      
         header("Location: index.php");
 

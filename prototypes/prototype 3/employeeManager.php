@@ -20,22 +20,24 @@
         public function getAllEmployees(){
             $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees_test';
             $result = mysqli_query($this->getConnection() ,$sqlGetData);
-            $employees = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $employeesList = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             $employees = array();
-            foreach($employees as $employee){
+            foreach($employeesList as $employee_list){
                 $employee = new Employee();
-                $employee->setId($employee['id']);
-                $employee->setFirstName($employee['first_name']);
-                $employee->setLastName($employee['last_name']);
-                $employee->setAge($employee['age']);
+                $employee->setId($employee_list['id']);
+                $employee->setFirstName($employee_list['first_name']);
+                $employee->setLastName($employee_list['last_name']);
+                $employee->setGender($employee_list['gender']);
+                $employee->setAge($employee_list['age']);
+                array_push($employees, $employee);
             }
 
             return $employees;
         }
 
 
-        public function insertEmployee($conn, $employee){
+        public function insertEmployee($employee){
             $firstName = $employee->getFirstName();
             $lastName = $employee->getLastName();
             $age = $employee->getAge();
@@ -48,7 +50,7 @@
                                     '$age', 
                                     '$gender')";
 
-        mysqli_query($conn, $sqlInsertQuery);
+        mysqli_query($this->getConnection(), $sqlInsertQuery);
         }
 
 
