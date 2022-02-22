@@ -58,9 +58,16 @@
 
 
         public function deleteEmployee($id){
-            $sqlDeleteQuery = "DELETE FROM employees_test WHERE id= '$id'";
-
-            mysqli_query($this->getConnection(), $sqlDeleteQuery);
+            $data = json_decode(file_get_contents('employees.json'));
+            for($i = 0; $i < count($data); ++$i){
+                if($data[$i]->id== $id){
+                    unset($data[$i]);
+                    // Remove the keys from data array after remove the item
+                    $data = array_values($data);
+                    file_put_contents("employees.json",json_encode($data));
+                    break;
+                }
+            }
         }
 
 
