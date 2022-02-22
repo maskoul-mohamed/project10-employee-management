@@ -17,15 +17,21 @@
             return $this->Connection;
         }
 
-        public function getAllEmployees($conn){
+        public function getAllEmployees(){
             $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees_test';
-            $result = mysqli_query($conn ,$sqlGetData);
-            $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $result = mysqli_query($this->getConnection() ,$sqlGetData);
+            $employees = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
             $employees = array();
             foreach($employees as $employee){
-                
+                $employee = new Employee();
+                $employee->setId($employee['id']);
+                $employee->setFirstName($employee['first_name']);
+                $employee->setLastName($employee['last_name']);
+                $employee->setAge($employee['age']);
             }
+
+            return $employees;
         }
 
 
