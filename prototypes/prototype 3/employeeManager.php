@@ -17,6 +17,8 @@
             return $this->Connection;
         }
 
+   
+
         public function getAllEmployees(){
             $sqlGetData = 'SELECT id, first_name, last_name, age, gender FROM employees_test';
             $result = mysqli_query($this->getConnection() ,$sqlGetData);
