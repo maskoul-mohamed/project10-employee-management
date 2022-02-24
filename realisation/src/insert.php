@@ -101,27 +101,66 @@
 						<div class="col-6 mx-1">
 							<label class="form-label" for="inputBirthDate">Birth Date</label>
 							<input class="form-control" type="date" required="required" class="form-control" id="inputBirthDate" name="birthDate" placeholder="Birth Date">
-							<span></span>
 						</div>
 							
 						<div class="col-6 mx-1">
 							<label class="form-label" for="inputSalary">Salary</label>
 							<input class="form-control" type="number" step="0.01" required="required" id="inputSalary" name="salary" placeholder="0.00">
-							<span></span>
 						</div>
 					</div>
 				
 					<div class="d-flex my-1">
 						<div class="col-6 mx-1">
 							<label class="form-label" for="inputDepartement">Departement</label>
-							<input class="form-control" type="text" required="required" id="inputDepartement" name="departement" placeholder="Departement">
-							<span></span>
+
+							<select class="form-select "required="required" id="inputDepartement" name="departement"  aria-label="Default select example">
+								<option selected>Chose...</option>
+								<option value="Accounting">Accounting</option>
+								<option value="Marketing">Marketing</option>
+								<option value="Production">Production</option>
+								<option value="I.T">I.T</option>
+								<option value="Works">Works</option>
+								<option value="Sales">Sales</option>
+								<option value="Logistics">Logistics</option>
+							</select>
 						</div>
 						<div class="col-6 mx-1">
 
 							<label class="form-label" for="inputFunction">Function</label>
-							<input class="form-control" type="text" required="required" id="inputFunction" name="function" placeholder="Function">
-							<span></span>
+							<select class="form-select" required="required" id="inputFunction" name="function" placeholder="Function"  	aria-label="Default select example">
+								<option selected>Chose...</option>
+								<option value="auditor">auditor</option>
+								<option value="CFO">CFO</option>
+								<option value="payroll specialist">payroll specialist</option>
+								<option value="tax specialist">tax specialist</option>
+								<option value="advertising manager">advertising manager</option>
+								<option value="brand manager">brand manager</option>
+								<option value="public relations officer">public relations officer</option>
+								<option value="compensation specialist">compensation specialist</option>
+								<option value="recruiter">personnel manager</option>
+								<option value="public relations officer">recruiter</option>
+								<option value="training manager">training manager </option>
+								<option value="chief inspector">chief inspector</option>
+								<option value="machinist">machinist</option>
+								<option value="quality control manager">quality control manager</option>
+								<option value="plant manager">plant manager</option>
+								<option value="communications analyst">communications analyst</option>
+								<option value="database administrator">database administrator</option>
+								<option value="e­business specialist">e­business specialist</option>
+								<option value="pc support specialist">pc support specialist</option>
+								<option value="branch manager">branch manager</option>
+								<option value="rep">rep</option>
+								<option value="retail manager">retail manager</option>
+								<option value="telemarketer">telemarketer</option>
+								<option value="depot manager">depot manager</option>
+								<option value="forklift driver">forklift driver</option>
+								<option value="transport manager">transport manager</option>
+								<option value="architect">architect</option>
+								<option value="civil engineer">civil engineer</option>
+								<option value="project manager">project manager</option>
+								<option value="warehouse administrator">warehouse administrator</option>
+								<option value="site manager">site manager</option>
+							</select>
 						</div>
 					</div>
 				
