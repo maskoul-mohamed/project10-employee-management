@@ -24,42 +24,69 @@
 </head>
 
 <body>
-
-    <div >
-        <a href="insert.php">Insert Data</a>
-        <table>
-            <tr>
-                <th>Employee Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Birth Date</th>
-                <th>Departement</th>
-                <th>Salary</th>
-                <th>Function</th>
-                <th>Photo</th>
-            </tr>
-
-            <?php
-                    foreach($employees as $employee){
-            ?>
-
-            <tr>
-                <td><?= $employee->getEmployeeId()?></td>
-                <td><?= $employee->getFirstName()?></td>
-                <td><?= $employee->getLastName()?></td>
-                <td><?= $employee->getBirthDate()?></td>
-                <td><?= $employee->getDepartement()?></td>
-                <td><?= $employee->getSalary()?></td>
-                <td><?= $employee->getFunction()?></td>
-                <td><img src="<?php echo '../images/'.$employee->getPhoto(); ?>"></td>
-                <td>
-                    <a href="edit.php?id=<?php echo $employee->getId() ?>">Edit</a>
-                    <a href="delete.php?id=<?php echo $employee->getId() ?>">delete</a>
-                </td>
-            </tr>
-            <?php }?>
-        </table>
+        <nav class=" navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Employee Management</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Add New</a>
+        </li>
+      </ul>
+   
+            </div>
+        </div>
+    </nav>
+    <main class="container-fluid px-4 mt-5">
+    <div class="card mb-4">
+    <div class="card-header">
+        <div>Employees</div>
     </div>
-                    </header>
+        <div class="card-body">            
+            <table class="table">
+                <tr>
+                    <th class="col">Employee Id</th>
+                    <th class="col">First Name</th>
+                    <th class="col">Last Name</th>
+                    <th class="col">Birth Date</th>
+                    <th class="col">Departement</th>
+                    <th class="col">Salary</th>
+                    <th class="col">Function</th>
+                    <th class="col">Photo</th>
+                </tr>
+
+                <?php
+                        foreach($employees as $employee){
+                ?>
+
+                <tr>
+                    <td><?= $employee->getEmployeeId()?></td>
+                    <td><?= $employee->getFirstName()?></td>
+                    <td><?= $employee->getLastName()?></td>
+                    <td><?= $employee->getBirthDate()?></td>
+                    <td><?= $employee->getDepartement()?></td>
+                    <td><?= $employee->getSalary()?></td>
+                    <td><?= $employee->getFunction()?></td>
+                    <td><img src="<?php echo '../images/'.$employee->getPhoto(); ?>"></td>
+                    <td>
+                        <a href="edit.php?id=<?php echo $employee->getId() ?>">Edit</a>
+                        <a href="delete.php?id=<?php echo $employee->getId() ?>">delete</a>
+                    </td>
+                </tr>
+                <?php }?>
+            </table>
+        </div>
+    </div>
+    </main>
 </body>
 </html>
