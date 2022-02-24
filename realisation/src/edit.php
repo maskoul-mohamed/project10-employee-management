@@ -1,13 +1,12 @@
 <?php
-    include '../config.php';
-    include 'employee.php';
+
     include 'employeeManager.php';
 
     $employeeManager = new EmployeeManager();
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        $employee = $employeeManager->getEmployee($connect, $id);
+        $employee = $employeeManager->getEmployee($id);
     }
     if(isset($_POST['update'])){
 
@@ -31,7 +30,7 @@
             $employeeToEdit->setPhoto($employee['photo']);
         }
 
-        $employeeManager->editEmployee($connect, $employeeToEdit, $id);
+        $employeeManager->editEmployee($employeeToEdit, $id);
         
         
         

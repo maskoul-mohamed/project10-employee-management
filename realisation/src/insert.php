@@ -1,7 +1,5 @@
 <?php
 
-    include '../config.php';
-	include 'employee.php';
 	include 'employeeManager.php';
 
     if(!empty($_POST)){
@@ -11,6 +9,7 @@
 		$employee->setEmployeeId($_POST['employeeId']);
 		$employee->setFirstName($_POST['firstName']);
 		$employee->setLastName($_POST['lastName']);
+		$employee->setFunction($_POST['function']);
 		$employee->setSalary($_POST['salary']);
 		$employee->setBirthDate($_POST['birthDate']);
 		$employee->setDepartement($_POST['departement']);
@@ -19,7 +18,7 @@
 
 	    $tempname = $_FILES["uploadfile"]["tmp_name"];    
 
-		$employeeManager->insertEmployee($connect, $employee);
+		$employeeManager->insertEmployee($employee);
 		$employeeManager->upload_photo($filename, $tempname);
         header("Location: index.php");
 
@@ -70,11 +69,16 @@
 			</div>
 
             <div>
-				<label for="inputDepartement">Function</label>
+				<label for="inputDepartement">Departement</label>
 				<input type="text" required="required" id="inputDepartement" name="departement" placeholder="Departement">
         		<span></span>
 			</div>
+			<div>
 
+				<label for="inputFunction">Function</label>
+				<input type="text" required="required" id="inputFunction" name="function" placeholder="Function">
+        		<span></span>
+			</div>
             <div>
 				<label for="inputPhoto">Photo</label>
 				<input require type="file" name="uploadfile" value="">

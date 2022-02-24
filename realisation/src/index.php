@@ -44,17 +44,17 @@
             ?>
 
             <tr>
-                <td><?= $employee['employee_id']?></td>
-                <td><?= $employee['first_name']?></td>
-                <td><?= $employee['last_name']?></td>
-                <td><?= $employee['birth_date']?></td>
-                <td><?= $employee['departement']?></td>
-                <td><?= $employee['salary']?></td>
-                <td><?= $employee['function']?></td>
-                <td><img src="<?php echo '../images/'.$employee['photo']; ?>"></td>
+                <td><?= $employee->getEmployeeId()?></td>
+                <td><?= $employee->getFirstName()?></td>
+                <td><?= $employee->getLastName()?></td>
+                <td><?= $employee->getBirthDate()?></td>
+                <td><?= $employee->getDepartement()?></td>
+                <td><?= $employee->getSalary()?></td>
+                <td><?= $employee->getFunction()?></td>
+                <td><img src="<?php echo '../images/'.$employee->getPhoto(); ?>"></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $employee['id'] ?>">Edit</a>
-                    <a href="delete.php?id=<?php echo $employee['id'] ?>">delete</a>
+                    <a href="edit.php?id=<?php echo $employee->getId() ?>">Edit</a>
+                    <a href="delete.php?id=<?php echo $employee->getId() ?>">delete</a>
                 </td>
             </tr>
             <?php }?>
