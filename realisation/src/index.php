@@ -2,13 +2,19 @@
     include '../config.php';
     include 'employeeManager.php';
     session_start();
+    $employeeManager= new EmployeeManager();
 
     if(isset($_SESSION["username"])){
-        $employee= new EmployeeManager();
-        $employees = $employee->getAllEmployees($connect);
+        $employees = $employeeManager->getAllEmployees($connect);
+
+        if(isset($_GET["search"]) && isset($_GET["keywords"])){
+            $employees = $employeeManager->searchBy($_GET["keywords"], $_GET["search"]);
+        }
+
     } else {
         header("Location: signin.php");
     }
+
 
 
     
@@ -35,8 +41,15 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand">Employees Manager</a>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form method="GET" action="" class="d-flex">
+                <select class="form-select me-2" name="keywords" >
+                    <option value="employee_id">Employee Id</option>
+                    <option value="first_name">First Name</option>
+                    <option value="last_name">Last Name</option>
+                    <option value="departement">Departement</option>
+                    <option value="function">Function</option>
+                </select>
+                <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success text-white" type="submit">Search</button>
             </form>
         </div>

@@ -137,7 +137,34 @@
             $employee->setFunction($employee_data['function']);
             $employee->setPhoto($employee_data['photo']);
             return $employee;
-        }        
+        }  
+        
+        
+        function searchBy($keywords, $search){
+            $keyword = mysqli_real_escape_string($this->getConnection(), $keywords);
+            $searchWord = mysqli_real_escape_string($this->getConnection(), $search);
+            $searchQuery = "SELECT * FROM employees WHERE " . $keyword ."= '$searchWord'";
+
+            $result = mysqli_query($this->getConnection() ,$searchQuery);
+            $employeesList = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            $employees = array();
+            foreach($employeesList as $employee_list){
+                $employee = new Employee();
+                $employee->setId($employee_list['id']);
+                $employee->setEmployeeId($employee_list['employee_id']);
+                $employee->setFirstName($employee_list['first_name']);
+                $employee->setLastName($employee_list['last_name']);
+                $employee->setBirthDate($employee_list['birth_date']);
+                $employee->setSalary($employee_list['salary']);
+                $employee->setDepartement($employee_list['departement']);
+                $employee->setFunction($employee_list['function']);
+                $employee->setPhoto($employee_list['photo']);
+                array_push($employees, $employee);
+            }
+
+            return $employees;
+        }
     }
 
 
