@@ -1,6 +1,22 @@
 <?php
+  session_start();
+  define("ONE_WEEK", 7 * 86400);
+  $errors = array('$message'=>'');
+  if(isset($_POST["username"], $_POST["password"])){
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    if($username == "admin" && $password=="admin"){
+      setcookie("auth", "user", time()+ ONE_WEEK);
+      $errors['message'] = "";
+      header("Location: index.php");
+    } else {
+      $errors['message'] = "Username or password is incorrect ";
+    }
+  }
 
 
+  
 ?>
 
 <!DOCTYPE html>
@@ -18,19 +34,20 @@
 <body class="text-center container">
     
     <main class="form-signin">
-      <form>
+      <form method="POST" action="">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
     
         <div class="form-floating">
-          <input type="text" class="form-control" id="floatingInput" placeholder="Username">
+          <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Username">
           <label for="floatingInput">Username</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
           <label for="floatingPassword">Password</label>
         </div>
-    
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <div class="text-danger my-2"><?php echo $errors["message"]?></div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit" name="signin">Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2021-2022</p>
       </form>
     </main>
