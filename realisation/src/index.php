@@ -94,12 +94,13 @@
                 <tr>
                     <th class="col">Photo</th>
                     <th class="col">Employee Id</th>
-                    <th class="col">First Name</th>
+                    <th class="d-none d-lg-table-cell">First Name</th>
                     <th class="col">Last Name</th>
-                    <th class="col">Birth Date</th>
-                    <th class="col">Departement</th>
-                    <th class="col">Salary</th>
-                    <th class="col">Function</th>
+                    <th class="d-none d-lg-table-cell">Birth Date</th>
+                    <th class="d-none d-md-table-cell">Departement</th>
+                    <th class="d-none d-md-table-cell">Salary</th>
+                    <th class="d-none d-lg-table-cell">Function</th>
+                    <th class="col">Actions</th>
                 </tr>
 
                 <?php
@@ -109,12 +110,12 @@
                 <tr>
                     <td><img class="rounded-circle float-start sm-img" style="max: width 100px;" src="<?php echo '../images/'.$employee->getPhoto(); ?>"></td>
                     <td><?= $employee->getEmployeeId()?></td>
-                    <td><?= $employee->getFirstName()?></td>
+                    <td class="d-none d-lg-table-cell"><?= $employee->getFirstName()?></td>
                     <td><?= $employee->getLastName()?></td>
-                    <td><?= $employee->getBirthDate()?></td>
-                    <td><?= $employee->getDepartement()?></td>
-                    <td><?= $employee->getSalary()?></td>
-                    <td><?= $employee->getFunction()?></td>
+                    <td class="d-none d-lg-table-cell"><?= $employee->getBirthDate()?></td>
+                    <td class="d-none d-md-table-cell"><?= $employee->getDepartement()?></td>
+                    <td class="d-none d-md-table-cell"><?= $employee->getSalary()?></td>
+                    <td class="d-none d-lg-table-cell"><?= $employee->getFunction()?></td>
                     <td>
                         <a class="btn btn-outline-primary" href="edit.php?id=<?php echo $employee->getId() ?>">Edit</a>
                         <a class="btn btn-outline-danger" href="delete.php?id=<?php echo $employee->getId() ?>">delete</a>
