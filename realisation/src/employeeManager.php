@@ -118,7 +118,9 @@
         }
 
 
-        public function editEmployee($employee, $id){
+        public function editEmployee($employeeInput, $id){
+            $employee = $this->filterUserInput($employeeInput);
+
             $employeeId = $employee->getEmployeeId();
             $firstName = $employee->getFirstName();
             $lastName = $employee->getLastName();
