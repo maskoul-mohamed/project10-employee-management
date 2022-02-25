@@ -64,6 +64,14 @@
                         </li>
                     </ul>
                     <hr>
+					<div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="d-none d-sm-inline mx-1">Admin</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a href="signout.php" class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
                 </div>
         </div>
         <div class="col py-3 container-fluid">
