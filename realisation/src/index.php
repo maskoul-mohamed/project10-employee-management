@@ -110,12 +110,12 @@
                 <tr>
                     <td><img class="rounded-circle float-start sm-img" style="max: width 100px;" src="<?php echo '../images/'.$employee->getPhoto(); ?>"></td>
                     <td><?= $employee->getEmployeeId()?></td>
-                    <td class="d-none d-lg-table-cell"><?= $employee->getFirstName()?></td>
+                    <td class="d-none d-lg-table-cell"><?= htmlspecialchars($employee->getFirstName())?></td>
                     <td><?= $employee->getLastName()?></td>
-                    <td class="d-none d-lg-table-cell"><?= $employee->getBirthDate()?></td>
-                    <td class="d-none d-md-table-cell"><?= $employee->getDepartement()?></td>
-                    <td class="d-none d-md-table-cell"><?= $employee->getSalary()?></td>
-                    <td class="d-none d-lg-table-cell"><?= $employee->getFunction()?></td>
+                    <td class="d-none d-lg-table-cell"><?= htmlspecialchars($employee->getBirthDate())?></td>
+                    <td class="d-none d-md-table-cell"><?= htmlspecialchars($employee->getDepartement())?></td>
+                    <td class="d-none d-md-table-cell"><?= htmlspecialchars($employee->getSalary())?></td>
+                    <td class="d-none d-lg-table-cell"><?= htmlspecialchars($employee->getFunction())?></td>
                     <td>
                         <a class="btn btn-outline-primary" href="edit.php?id=<?php echo $employee->getId() ?>">Edit</a>
                         <a class="btn btn-outline-danger" href="delete.php?id=<?php echo $employee->getId() ?>">delete</a>
