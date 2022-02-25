@@ -5,7 +5,7 @@
     $employeeManager = new EmployeeManager();
 	session_start();
 	if(isset($_SESSION["username"])){
-        
+
         if(isset($_GET['id'])){
             $id = $_GET['id'];
             $employee = $employeeManager->getEmployee($id);
@@ -30,13 +30,11 @@
                 $employeeToEdit->setPhoto($filename);
                 $employeeManager->upload_photo($filename, $tempname);
             } else {
-                $employeeToEdit->setPhoto($employee['photo']);
+                $employeeToEdit->setPhoto($employee->getPhoto());
             }
 
             $employeeManager->editEmployee($employeeToEdit, $id);
-            
-            
-            
+    
             header('Location: index.php');
             
         }
