@@ -78,7 +78,7 @@
                 ?>
 
                 <tr>
-                    <td><img class="rounded-circle float-start" style="max: width 100px;" src="<?php echo '../images/'.$employee->getPhoto(); ?>"></td>
+                    <td><img class="rounded-circle float-start sm-img" style="max: width 100px;" src="<?php echo '../images/'.$employee->getPhoto(); ?>"></td>
                     <td><?= $employee->getEmployeeId()?></td>
                     <td><?= $employee->getFirstName()?></td>
                     <td><?= $employee->getLastName()?></td>
