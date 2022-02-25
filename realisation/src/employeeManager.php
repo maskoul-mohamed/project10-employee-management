@@ -96,6 +96,7 @@
             $salary = $employee->getSalary();
             $birthDate = $employee->getBirthDate();
             $departement = $employee->getDepartement();
+            $function = $employee->getFunction();
             $photo = $employee->getPhoto();
      
             // Update query
@@ -106,6 +107,7 @@
                                 salary='$salary', 
                                 birth_date='$birthDate',
                                 departement='$departement',
+                                function='$function',
                                 photo='$photo' 
                                 WHERE id=$id";
      
@@ -115,14 +117,26 @@
         }
 
         public function getEmployee($id){
-        $sqlGetQuery = "SELECT * FROM employees WHERE id= $id";
-    
-        // get result
-        $result = mysqli_query($this->getConnection(), $sqlGetQuery);
-    
-        // fetch to array
-        $employee = mysqli_fetch_assoc($result);
-        return $employee;
+            $sqlGetQuery = "SELECT * FROM employees WHERE id= $id";
+        
+            // get result
+            $result = mysqli_query($this->getConnection(), $sqlGetQuery);
+        
+            // fetch to array
+            $employee_data = mysqli_fetch_assoc($result);
+
+            $employee = new Employee();
+
+            $employee->setId($employee_data['id']);
+            $employee->setEmployeeId($employee_data['employee_id']);
+            $employee->setFirstName($employee_data['first_name']);
+            $employee->setLastName($employee_data['last_name']);
+            $employee->setBirthDate($employee_data['birth_date']);
+            $employee->setSalary($employee_data['salary']);
+            $employee->setDepartement($employee_data['departement']);
+            $employee->setFunction($employee_data['function']);
+            $employee->setPhoto($employee_data['photo']);
+            return $employee;
         }        
     }
 
