@@ -1,28 +1,30 @@
 <?php
 
 	include 'employeeManager.php';
+	session_start();
+	if(isset($_SESSION["username"])){
+		if(!empty($_POST)){
+			$employeeManager = new EmployeeManager();
+			$filename = $_FILES["uploadfile"]["name"];
+			$employee = new Employee();
+			$employee->setEmployeeId($_POST['employeeId']);
+			$employee->setFirstName($_POST['firstName']);
+			$employee->setLastName($_POST['lastName']);
+			$employee->setFunction($_POST['function']);
+			$employee->setSalary($_POST['salary']);
+			$employee->setBirthDate($_POST['birthDate']);
+			$employee->setDepartement($_POST['departement']);
+			$employee->setPhoto($filename);
 
-    if(!empty($_POST)){
-		$employeeManager = new EmployeeManager();
-		$filename = $_FILES["uploadfile"]["name"];
-		$employee = new Employee();
-		$employee->setEmployeeId($_POST['employeeId']);
-		$employee->setFirstName($_POST['firstName']);
-		$employee->setLastName($_POST['lastName']);
-		$employee->setFunction($_POST['function']);
-		$employee->setSalary($_POST['salary']);
-		$employee->setBirthDate($_POST['birthDate']);
-		$employee->setDepartement($_POST['departement']);
-		$employee->setPhoto($filename);
 
+			$tempname = $_FILES["uploadfile"]["tmp_name"];    
 
-	    $tempname = $_FILES["uploadfile"]["tmp_name"];    
+			$employeeManager->insertEmployee($employee);
+			$employeeManager->upload_photo($filename, $tempname);
+			header("Location: index.php");
 
-		$employeeManager->insertEmployee($employee);
-		$employeeManager->upload_photo($filename, $tempname);
-        header("Location: index.php");
-
-    }
+		}
+	}
 ?>
 
 

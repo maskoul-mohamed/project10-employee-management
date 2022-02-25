@@ -3,40 +3,43 @@
     include 'employeeManager.php';
 
     $employeeManager = new EmployeeManager();
-
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        $employee = $employeeManager->getEmployee($id);
-    }
-    if(isset($_POST['update'])){
-
-        $filename = $_FILES["uploadfile"]["name"];
-		$employeeToEdit = new Employee();
-
-		$employeeToEdit->setEmployeeId($_POST['employeeId']);
-		$employeeToEdit->setFirstName($_POST['firstName']);
-		$employeeToEdit->setLastName($_POST['lastName']);
-		$employeeToEdit->setSalary($_POST['salary']);
-		$employeeToEdit->setBirthDate($_POST['birthDate']);
-		$employeeToEdit->setDepartement($_POST['departement']);
-		$employeeToEdit->setFunction($_POST['function']);
-
-
-	    $tempname = $_FILES["uploadfile"]["tmp_name"];    
-
-        if(!empty($filename)){
-            $employeeToEdit->setPhoto($filename);
-            $employeeManager->upload_photo($filename, $tempname);
-        } else {
-            $employeeToEdit->setPhoto($employee['photo']);
+	session_start();
+	if(isset($_SESSION["username"])){
+        
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $employee = $employeeManager->getEmployee($id);
         }
+        if(isset($_POST['update'])){
 
-        $employeeManager->editEmployee($employeeToEdit, $id);
-        
-        
-        
-        header('Location: index.php');
-        
+            $filename = $_FILES["uploadfile"]["name"];
+            $employeeToEdit = new Employee();
+
+            $employeeToEdit->setEmployeeId($_POST['employeeId']);
+            $employeeToEdit->setFirstName($_POST['firstName']);
+            $employeeToEdit->setLastName($_POST['lastName']);
+            $employeeToEdit->setSalary($_POST['salary']);
+            $employeeToEdit->setBirthDate($_POST['birthDate']);
+            $employeeToEdit->setDepartement($_POST['departement']);
+            $employeeToEdit->setFunction($_POST['function']);
+
+
+            $tempname = $_FILES["uploadfile"]["tmp_name"];    
+
+            if(!empty($filename)){
+                $employeeToEdit->setPhoto($filename);
+                $employeeManager->upload_photo($filename, $tempname);
+            } else {
+                $employeeToEdit->setPhoto($employee['photo']);
+            }
+
+            $employeeManager->editEmployee($employeeToEdit, $id);
+            
+            
+            
+            header('Location: index.php');
+            
+        }
     }
 ?>
 

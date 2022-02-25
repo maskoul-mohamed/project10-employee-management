@@ -1,9 +1,16 @@
 <?php
     include '../config.php';
     include 'employeeManager.php';
+    session_start();
 
-    $employee= new EmployeeManager();
-    $employees = $employee->getAllEmployees($connect);
+    if(isset($_SESSION["username"])){
+        $employee= new EmployeeManager();
+        $employees = $employee->getAllEmployees($connect);
+    } else {
+        header("Location: signin.php");
+    }
+
+
     
 
 

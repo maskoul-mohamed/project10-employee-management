@@ -1,18 +1,22 @@
 <?php
   session_start();
-  define("ONE_WEEK", 7 * 86400);
-  $errors = array('$message'=>'');
-  if(isset($_POST["username"], $_POST["password"])){
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+  $errors = array('message'=>'');
+	if(!isset($_SESSION["username"])){
+    if(isset($_POST["username"], $_POST["password"])){
+      $username = $_POST["username"];
+      $password = $_POST["password"];
 
-    if($username == "admin" && $password=="admin"){
-      setcookie("auth", "user", time()+ ONE_WEEK);
-      $errors['message'] = "";
-      header("Location: index.php");
-    } else {
-      $errors['message'] = "Username or password is incorrect ";
+      if($username == "admin" && $password=="admin"){
+        $_SESSION['username'] = $username;
+        $errors['message'] = "";
+        header("Location: index.php");
+      } else {
+        $errors['message'] = "Username or password is incorrect ";
+      }
     }
+  } else {
+    header("Location: index.php");
+
   }
 
 
