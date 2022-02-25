@@ -16,6 +16,32 @@
             return $this->Connection;
         }
 
+
+        private function filterUserInput($employee){
+            
+            $employeeFiltered = new Employee();
+
+            $employeeId = mysqli_escape_string($this->getConnection(),$employee->getEmployeeId());
+            $firstName = mysqli_escape_string($this->getConnection(),$employee->getFirstName());
+            $lastName = mysqli_escape_string($this->getConnection(),$employee->getLastName());
+            $salary = mysqli_escape_string($this->getConnection(),$employee->getSalary());
+            $birthDate = mysqli_escape_string($this->getConnection(),$employee->getBirthDate());
+            $departement = mysqli_escape_string($this->getConnection(),$employee->getDepartement());
+            $function = mysqli_escape_string($this->getConnection(),$employee->getFunction());
+            $photo = mysqli_escape_string($this->getConnection(),$employee->getPhoto());
+
+            $employeeFiltered->setEmployeeId($employeeId);
+            $employeeFiltered->setFirstName($firstName);
+            $employeeFiltered->setLastName($lastName);
+            $employeeFiltered->setSalary($salary);
+            $employeeFiltered->setBirthDate($birthDate);
+            $employeeFiltered->setDepartement($departement);
+            $employeeFiltered->setFunction($function);
+            $employeeFiltered->setPhoto($photo);
+
+            return $employeeFiltered;
+        }
+
         public function getAllEmployees(){
             $sqlGetData = 'SELECT * FROM employees';
             $result = mysqli_query($this->getConnection() ,$sqlGetData);
@@ -41,7 +67,10 @@
 
 
 
-        public function insertEmployee($employee){
+        public function insertEmployee($employeeInput){
+
+            $employee = $this->filterUserInput($employeeInput);
+
             $employeeId = $employee->getEmployeeId();
             $firstName = $employee->getFirstName();
             $lastName = $employee->getLastName();
@@ -165,6 +194,8 @@
 
             return $employees;
         }
+
+   
     }
 
 
