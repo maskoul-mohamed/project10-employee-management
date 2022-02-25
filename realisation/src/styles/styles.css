@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 
-img {
+.sm-img {
     max-width: 48px;
 }
 
 td {
     vertical-align:middle
+}
+
+.lg-img {
+    max-width: 120px ; 
 }
