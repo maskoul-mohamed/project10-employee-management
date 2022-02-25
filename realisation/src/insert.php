@@ -2,6 +2,18 @@
 
 	include 'employeeManager.php';
 	session_start();
+
+	$errors = array(	
+					'employee_id'=>'', 
+					'first_name'=>'', 
+					'last_name'=>'', 
+					'function'=>'',
+					'salary'=>'',
+					'birthDate'=>'',
+					'departement'=>'',
+					'function'=>''
+	);
+
 	if(isset($_SESSION["username"])){
 		if(!empty($_POST)){
 			$employeeManager = new EmployeeManager();
@@ -24,6 +36,8 @@
 			header("Location: index.php");
 
 		}
+
+		
 	}
 ?>
 
