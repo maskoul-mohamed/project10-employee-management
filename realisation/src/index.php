@@ -1,6 +1,6 @@
 <?php
     include '../config.php';
-    include 'employeeManager.php';
+    include './employeeManager.php';
     session_start();
     $employeeManager= new EmployeeManager();
 
