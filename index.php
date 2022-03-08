@@ -11,12 +11,11 @@
         }
 
     } else {
-        header("Location: src/signin.php");
+        header("Location: signin.php");
     }
 
 
 
-    
 
 
 ?>
