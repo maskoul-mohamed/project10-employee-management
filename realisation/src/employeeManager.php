@@ -5,15 +5,15 @@
 
         private function getConnection(){
             if(is_null($this->Connection)){
-                $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-                $cleardb_server = $cleardb_url["host"];
-                $cleardb_username = $cleardb_url["user"];
-                $cleardb_password = $cleardb_url["pass"];
-                $cleardb_db = substr($cleardb_url["path"],1);
-                $active_group = 'default';
-                $query_builder = TRUE;
-                $this->Connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
+                // $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+                // $cleardb_server = $cleardb_url["host"];
+                // $cleardb_username = $cleardb_url["user"];
+                // $cleardb_password = $cleardb_url["pass"];
+                // $cleardb_db = substr($cleardb_url["path"],1);
+                // $active_group = 'default';
+                // $query_builder = TRUE;
+                // $this->Connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+                $this->Connection = mysqli_connect('localhost', 'maskoul', 'test123', 'employees_db');
 
                 if(!$this->Connection){
                     $message = 'Connection Error: ' .mysqli_connect_error();
