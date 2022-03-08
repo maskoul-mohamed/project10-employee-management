@@ -1,11 +1,10 @@
 <?php
-    include '../config.php';
     include 'employeeManager.php';
     session_start();
     $employeeManager= new EmployeeManager();
 
     if(isset($_SESSION["username"])){
-        $employees = $employeeManager->getAllEmployees($connect);
+        $employees = $employeeManager->getAllEmployees();
 
         if(isset($_GET["search"]) && isset($_GET["keywords"])){
             $employees = $employeeManager->searchBy($_GET["keywords"], $_GET["search"]);
