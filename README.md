@@ -57,7 +57,7 @@ Just access this [link](https://my-employee-manager-maskoul.herokuapp.com/) and 
  $this->Connection = mysqli_connect('localhost', 'username', 'password', 'employees_db');
 
 ``` 
-11. open any browser and type http://localhost/project10-employee-management/blob/main/realisation/src/index.php/.
+11. open any browser and type http://localhost/project10-employee-management/realisation/src/index.php/.
 12. Password and username is admin
 ## Author
 
@@ -66,6 +66,7 @@ Just access this [link](https://my-employee-manager-maskoul.herokuapp.com/) and 
 - Github: [@maskoul-mohamed](https://github.com/maskoul-mohamed)
 - Linkedin: [Maskoul Mohamed](https://www.linkedin.com/in/mohammed-maskoul/)
 - Email: maskoul.mohammed@gmail.com
+- Portfolio: [maskoul-mohamed](https://maskoul-mohamed.github.io/)
 
 ## Show your support
 
