@@ -1,6 +1,6 @@
 # project10-employee-management
 
-<h4 align="center"><a https://my-employee-manager-maskoul.herokuapp.com/>Live version >></a></h4>
+<h4 align="center"><a href="https://my-employee-manager-maskoul.herokuapp.com/">Live version >></a></h4>
 
 
 ## Table of Contents
@@ -51,8 +51,8 @@ Just access this [link](https://my-employee-manager-maskoul.herokuapp.com/) and 
 6. Click on new at side navbar.
 7. Give a database name as (employees_db) hit on create button.
 8. After creating database name click on import.
-9. browse the file in directory     [project10-employee-management/blob/main/realisation/database/employees_db.sql].
-10. Go to [project10-employee-management/blob/main/realisation/src/employeeManager.php] for Changing username and password of database 
+9. browse the file in directory     [project10-employee-management/realisation/database/employees_db.sql].
+10. Go to [project10-employee-management/realisation/src/employeeManager.php] for Changing username and password of database 
 ```
  $this->Connection = mysqli_connect('localhost', 'username', 'password', 'employees_db');
 
