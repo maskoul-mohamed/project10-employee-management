@@ -1,6 +1,6 @@
 # project10-employee-management
 
-<h4 align="center"><a "https://my-employee-manager-maskoul.herokuapp.com/">Live version >></a></h4>
+<h4 align="center"><a https://my-employee-manager-maskoul.herokuapp.com/>Live version >></a></h4>
 
 
 ## Table of Contents
@@ -8,9 +8,9 @@
 - [About](https://github.com/maskoul-mohamed/project10-employee-management#about)
 - [Preview](https://github.com/maskoul-mohamed/project10-employee-management#preview)
 - [Built with](https://github.com/maskoul-mohamed/project10-employee-management#built-with)
-- [Installation](https://github.com/maskoul-mohamed/project10-employee-management#show-your-support#installation)
-    - [Online version](https://github.com/maskoul-mohamed/project10-employee-management#show-your-support#online-version)
-    - [Local version](https://github.com/maskoul-mohamed/project10-employee-management#show-your-support)
+- [Installation](https://github.com/maskoul-mohamed/project10-employee-management#installation)
+    - [Online version](https://github.com/maskoul-mohamed/project10-employee-management#online-version)
+    - [Local version](https://github.com/maskoul-mohamed/project10-employee-management#local-version)
 - [Author](https://github.com/maskoul-mohamed/project10-employee-management#author)
 - [Show your support](https://github.com/maskoul-mohamed/project10-employee-management#show-your-support)
 
@@ -38,8 +38,8 @@ employee management  system for sme (small and medium-sized enterprises).
 - ### Online version:
 
 Just access this [link](https://my-employee-manager-maskoul.herokuapp.com/) and type the city name on the input to get the current temperature and weather forecast for the next five days.
-    - Username is : admin
-    - Password is : admin
+- Username is : admin
+- Password is : admin
 
 - ### Local version:
 
@@ -54,7 +54,7 @@ Just access this [link](https://my-employee-manager-maskoul.herokuapp.com/) and 
 9. browse the file in directory     [project10-employee-management/blob/main/realisation/database/employees_db.sql].
 10. Go to [project10-employee-management/blob/main/realisation/src/employeeManager.php] for Changing username and password of database 
 ```
-                $this->Connection = mysqli_connect('localhost', 'username', 'password', 'employees_db');
+ $this->Connection = mysqli_connect('localhost', 'username', 'password', 'employees_db');
 
 ``` 
 11. open any browser and type http://localhost/project10-employee-management/blob/main/realisation/src/index.php/.
